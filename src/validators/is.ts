@@ -39,4 +39,4 @@ export const isSymbol = isTypeOf('symbol');
 export const isFunction = isTypeOf('function');
 export const isIndexable = is(indexable, 'indexable');
 export const isObject = is((value: unknown): value is object => (value !== null && typeof value === 'object'), 'object');
-export const isArray = is((value: unknown): value is unknown[] => Array.isArray(value), 'array');
+export const isArray = is((value: unknown): value is unknown[] => (value.toArray && Array.isArray(value.toArray())), 'array');
